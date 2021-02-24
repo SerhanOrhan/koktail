@@ -1,0 +1,51 @@
+.nav-menu{
+    display:flex;
+    width:100%;
+}
+
+.nav-menu ul{
+    display:flex;
+    padding:0;
+    margin:0;
+}
+
+.nav-menu ul li{
+    list-style: none;
+}
+
+.nav-menu ul li a{
+    margin-left:10px;
+    margin-right:10px;
+    display: flex;
+    text-decoration: none;
+    color:#222;
+}
+
+.regular-list-card{
+    display:flex;
+    width:100%;
+    margin-bottom:15px;
+}
+
+.regular-card-thumbnail{
+    width:200px;
+    display:flex;
+    margin-right: 15px;
+    height:200px;
+    overflow: hidden;
+}
+
+.regular-card-thumbnail img{
+    width:200px;
+    display:flex;
+}
+
+.regular-list-card-content{
+    display:flex;
+    flex-direction: column;
+    flex:1;
+}
+
+.regular-list-card-content .description p{
+    font-size:20px;
+}

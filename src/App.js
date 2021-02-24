@@ -1,47 +1,39 @@
-
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, {useEffect, useState} from 'react';
+import {Container} from 'react-bootstrap';
 import './App.css';
-import { Container } from 'react-bootstrap';
-import React  from 'react'
-
+import RegularCard from './components/cards/RegularCard';
+import CocktailNavbar from './components/header/CocktailNavbar';
+import {menus} from './dummydata/menus';
 
 function App() {
+  const [drinks, setDrinks] = useState([]);
+  const getCocktailsForSearch = () => {
+    axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+      .then(function(response) {
+        setDrinks(response.data.drinks);
+        console.log(response.data.drinks);
+      });
+  };
+  useEffect(() => {
+    getCocktailsForSearch();
+  }, []);
   return (
-    <div>
-      <Container>
-        <table style={{
-          backgroundColor: "#F9F6F5",
-          display: "block",
-          color: "#000",
-          paddingLeft: 16
-        }}>
-          <tbody>
-            <tr>
-              <td>
-                <img alt="app icon" width="50" src="logo.svg" />
-              </td>
-              <td width="8" />
-              <td>
-                <h1>KoktailDb Search</h1>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <input style={{
-          fontSize: 24,
-          display: "block",
-          width: "99%",
-          paddingTop: 8,
-          paddingBottom: 8,
-          paddingLeft: 16,
+    <Container>
+      <CocktailNavbar menus={menus} brandName="Cocktail DB"/>
+      <div className="d-flex flex-column">
+        {drinks?.map((drink,index)=>{
+          const {idDrink, strDrink, strDrinkThumb, strInstructions} = drink;
+          return <RegularCard key={index} id={idDrink} title={strDrink}
+                              thumbnail={strDrinkThumb}
+                              description={strInstructions}/>
+        })}
 
-        }} placeholder="Enter Search" />
-        {this.state.rows}
-      </Container>
-    </div>
-
+      </div>
+    </Container>
   );
-
 }
 
-export default App
+export default App;
 
