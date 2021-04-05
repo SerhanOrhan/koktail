@@ -49,3 +49,73 @@
 .regular-list-card-content .description p{
     font-size:20px;
 }
+.category-form{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    border-style: inset;
+    border-width: 1px;
+    border-color: black;
+}
+.category-items{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-style: inset;
+    border-width: 1px;
+    background-color: #f8f9fa;
+}
+.regular-items:hover{
+    background-color:#8B8A89 ;
+}
+.category-items:active{
+    background-color: #8B8A89 ;
+}
+.nav-category{
+    width: 100%;
+    height: 100%;
+    border-style: none;
+}
+.nav-category ul{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav-category ul li a{
+    width: 100%;
+    height: 100%;
+    color: black;
+    text-decoration: none;
+}
+.btn-group{
+    height: 56px;
+}
+.item-card-thumbnail {
+    height: 400px;
+    width: 400px;
+}
+.item-card-thumbnail img{
+    height: 400px;
+}
+.item-list-card{
+   align-items: center;
+}
+.item-card-content{
+    margin-left: 5px;
+}
+.item-card-instruction{
+    list-style: none;
+}
+.item-card-ingredients ul{
+    list-style: none;
+}
+.search-form{
+    display: grid;
+}
+.regular-card-link:hover{
+    text-decoration: none;
+    color: black;
+}

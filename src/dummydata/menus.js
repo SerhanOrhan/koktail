@@ -4,16 +4,15 @@ export const menus = [
     name:'Home'
   },
   {
-    link:'/',
+    link:'/category',
     name:'Category'
   },
   {
-    link:'/',
+    link:'/search',
     name:'Search'
   },
   {
-    link:'/',
+    link:'https://github.com/SerhanOrhan/koktail',
     name:'Contact'
   }
 ];
-

@@ -3,11 +3,11 @@ import {Navbar} from 'react-bootstrap';
 import NavMenu from './NavMenu';
 
 function CocktailNavbar(props) {
-  const {logo, menus, brandName} = props;
+  const {menus, brandName} = props;
   return (
     <Navbar bg="light" variant="light" className="mb-3">
       <div className="d-flex align-items-center">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             alt=""
             src="/logo.svg"

@@ -1,39 +1,32 @@
-import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, {useEffect, useState} from 'react';
-import {Container} from 'react-bootstrap';
 import './App.css';
-import RegularCard from './components/cards/RegularCard';
-import CocktailNavbar from './components/header/CocktailNavbar';
-import {menus} from './dummydata/menus';
+import {BrowserRouter as Router,Route} from "react-router-dom";
+import React from 'react'
+import Home from './pages/Home';
+import Categoryform from './components/category/Categoryform';
+import Iteminstruction from './components/category/ItemInstruction';
+import SearchForm from './components/search/SearchForm';
 
 function App() {
-  const [drinks, setDrinks] = useState([]);
-  const getCocktailsForSearch = () => {
-    axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-      .then(function(response) {
-        setDrinks(response.data.drinks);
-        console.log(response.data.drinks);
-      });
-  };
-  useEffect(() => {
-    getCocktailsForSearch();
-  }, []);
   return (
-    <Container>
-      <CocktailNavbar menus={menus} brandName="Cocktail DB"/>
-      <div className="d-flex flex-column">
-        {drinks?.map((drink,index)=>{
-          const {idDrink, strDrink, strDrinkThumb, strInstructions} = drink;
-          return <RegularCard key={index} id={idDrink} title={strDrink}
-                              thumbnail={strDrinkThumb}
-                              description={strInstructions}/>
-        })}
+    <Router>
 
-      </div>
-    </Container>
-  );
+        <Route exact path="/">
+          <Home/>
+        </Route>
+        <Route exact path="/category">
+          <Categoryform/>
+        </Route>
+        <Route exact path="/search/">
+          <SearchForm/>
+        </Route>
+        <Route exact path="/detail/:id">
+          <Iteminstruction/>
+        </Route>
+    </Router>
+  )
 }
 
 export default App;
+
 
