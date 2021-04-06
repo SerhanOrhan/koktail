@@ -5,7 +5,7 @@ import React from 'react'
 import Home from './pages/Home';
 import Categoryform from './components/category/Categoryform';
 import Iteminstruction from './components/category/ItemInstruction';
-import SearchForm from './components/search/SearchForm';
+import Searchinput from './components/search/Searchinput';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Categoryform/>
         </Route>
         <Route exact path="/search/">
-          <SearchForm/>
+          <Searchinput/>
         </Route>
         <Route exact path="/detail/:id">
           <Iteminstruction/>

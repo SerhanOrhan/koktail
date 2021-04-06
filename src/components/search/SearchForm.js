@@ -1,18 +1,23 @@
 import React from 'react'
-import {Form, Button,FormControl, Container } from 'react-bootstrap';
+import { useForm } from "react-hook-form";
+import { Container } from 'react-bootstrap';
 import { menus } from '../../dummydata/menus';
 import CocktailNavbar from '../header/CocktailNavbar';
 
 
-function SearchForm() {
+function SearchForm(props) {
+    const {setSearch}=props
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => setSearch(data.DrinkName);
+
     return (
         <div>
             <Container>
-            <CocktailNavbar menus={menus} brandName="Cocktail DB" />
-            <Form inline className="search-form">
-                <FormControl className="search-formcontrol" placeholder="Search" />
-                <Button>Search</Button>
-            </Form>
+                <CocktailNavbar menus={menus} brandName="Cocktail DB" />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input  {...register("DrinkName")} placeholder="Search" />
+                    <button type="submit">Search</button>
+                </form>
             </Container>
         </div>
     )
