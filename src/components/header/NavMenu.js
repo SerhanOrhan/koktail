@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function NavMenu(props) {
   const {menus} = props;
@@ -7,7 +8,7 @@ function NavMenu(props) {
       <ul>
         {menus.map((menu, index) => {
           return (
-            <li key={index}><a href={menu.link}>{menu.name}</a></li>
+            <li key={index}><Link to={menu.link}>{menu.name}</Link></li>
           );
         })}
       </ul>

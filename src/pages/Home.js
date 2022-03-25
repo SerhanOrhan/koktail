@@ -37,7 +37,7 @@ function Home() {
                 
                     return <RegularCard key={index} id={idDrink} title={strDrink}
                         thumbnail={strDrinkThumb}
-                        description={strInstructions} />
+                        description={strInstructions}/>
                 })}
             </div>
          
