@@ -8,11 +8,13 @@ import {menus} from '../dummydata/menus';
 
 function Home() {
     const [drinks, setDrinks] = useState([]);
+    const [loading, setLoading] = useState(true); 
     const getCocktailsForSearch = () => {
         axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
             .then(function (response) {
                 setDrinks(response.data.drinks);
                 console.log(response.data.drinks);
+                setLoading(false);
             });
     };
     useEffect(() => {
@@ -29,8 +31,10 @@ function Home() {
 
 
             <div className="d-flex flex-column">
-                {drinks?.map((drink, index) => {
-                    const { idDrink, strDrink, strDrinkThumb, strInstructions } = drink;
+                {
+                    loading == true ? (<h1>Loading...</h1>): drinks?.map((drink, index) => {
+                        const { idDrink, strDrink, strDrinkThumb, strInstructions } = drink;
+                
                     return <RegularCard key={index} id={idDrink} title={strDrink}
                         thumbnail={strDrinkThumb}
                         description={strInstructions} />

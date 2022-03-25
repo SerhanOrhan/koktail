@@ -24,9 +24,9 @@ function ItemInstruction() {
             <Container>
             <CocktailNavbar menus={menus} brandName="Cocktail DB" />
         
-            {drinks?.map((drink) => {
+            {drinks?.map((drink, index) => {
                 const { idDrink, strDrink, strDrinkThumb, strInstructions,strCategory,strGlass,strAlcoholic,strMeasure1,strIngredient1,strMeasure2,strIngredient2,strMeasure3,strIngredient3,strMeasure4,strIngredient4,strMeasure5,strIngredient5,strMeasure6,strIngredient6,strMeasure7,strIngredient7,strMeasure8,strIngredient8 } = drink;
-                return <ItemCard  id={idDrink} title={strDrink}
+                return <ItemCard key={index}  id={idDrink} title={strDrink}
                     thumbnail={strDrinkThumb}
                     description={strInstructions}
                     category={strCategory} glasstype={strGlass} kokalcoholic={strAlcoholic}

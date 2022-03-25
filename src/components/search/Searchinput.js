@@ -7,6 +7,7 @@ import SearchForm from './SearchForm'
 function Searchinput() {
     const [search, setSearch] = useState(null);
     const [drinks, setDrinks] = useState([]);
+
     const getCocktailsForSearch = () => {
         axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + search)
             .then(function (response) {

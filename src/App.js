@@ -10,7 +10,6 @@ import Searchinput from './components/search/Searchinput';
 function App() {
   return (
     <Router>
-
         <Route exact path="/">
           <Home/>
         </Route>

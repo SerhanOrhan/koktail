@@ -13,11 +13,13 @@ function Categoryform() {
 
     const [count, setCount] = useState("c=Cocktail");
     const [drinks, setDrinks] = useState([]);
+    const [loading, setLoading] = useState(true);
     const getCocktailsForFilter = () => {
             axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?' + count)
                     .then(function (response) {
                             setDrinks(response.data.drinks);
                             console.log(response.data.drinks);
+                            setLoading(false);
                     });
     };
     useEffect(() => {
@@ -34,7 +36,7 @@ function Categoryform() {
         
             </div>
             <div className="container">
-                                {drinks?.map((drink, index) => {
+                                { loading == true ? (<h1>Loading...</h1>): drinks?.map((drink, index) => {
                                         const { idDrink, strDrink, strDrinkThumb, strInstructions } = drink;
                                         return <RegularCard key={index} id={idDrink} title={strDrink}
                                                 thumbnail={strDrinkThumb}

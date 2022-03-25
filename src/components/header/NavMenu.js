@@ -5,9 +5,9 @@ function NavMenu(props) {
   return (
     <div className="nav-menu">
       <ul>
-        {menus.map((menu) => {
+        {menus.map((menu, index) => {
           return (
-            <li><a href={menu.link}>{menu.name}</a></li>
+            <li key={index}><a href={menu.link}>{menu.name}</a></li>
           );
         })}
       </ul>
